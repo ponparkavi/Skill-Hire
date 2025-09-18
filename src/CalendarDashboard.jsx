@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -9,7 +9,7 @@ import "./CalendarDashboard.css";
 export default function CalendarDashboard() {
   const calendarRef = useRef(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [year, setYear] = useState(new Date().getFullYear());
+  const [selectedDateInfo, setSelectedDateInfo] = useState(null);
   const [filterStatus, setFilterStatus] = useState(null);
   const [filterDate, setFilterDate] = useState("");
   const [sessions, setSessions] = useState([
@@ -31,23 +31,13 @@ export default function CalendarDashboard() {
     }
   };
 
-  useEffect(() => {
-    if (calendarRef.current) {
-      const calendarApi = calendarRef.current.getApi();
-      const currentMonth = calendarApi.getDate().getMonth();
-      calendarApi.gotoDate(new Date(year, currentMonth, 1));
-    }
-  }, [year]);
-
-  const handleYearChange = (e) => setYear(parseInt(e.target.value));
-
   const displayedSessions = sessions
     .filter(s => !filterStatus || s.status === filterStatus)
     .filter(s => !filterDate || s.start.split("T")[0] === filterDate);
 
   const rejectedCount = sessions.filter(s => s.status === "declined").length;
   const finishedCount = sessions.filter(s => s.status === "finished").length;
-  const ongoingCount = sessions.filter(s => s.status === "ongoing").length;
+  const ongoingCount = sessions.filter(s => s.status === "ongoing" || s.status === "accepted").length;
 
   const handleAddSession = (e) => {
     e.preventDefault();
@@ -57,12 +47,16 @@ export default function CalendarDashboard() {
     const title = `${newSession.subject} - ${newSession.learner}`;
     const newEntry = { id, title, start: newSession.datetime, status: "ongoing" };
 
-    setSessions([...sessions, newEntry]);
+    setSessions(prev => [...prev, newEntry]);
     setNewSession({ learner: "", subject: "", datetime: "" });
     setShowAddModal(false);
+
+    // Optional: navigate calendar to new session date
+    const calendarApi = calendarRef.current.getApi();
+    calendarApi.gotoDate(newEntry.start);
   };
 
-  const handleDeleteSession = (id) => setSessions(sessions.filter(s => s.id !== id));
+  const handleDeleteSession = (id) => setSessions(prev => prev.filter(s => s.id !== id));
 
   const formatDateTime = (dateStr) => {
     const d = new Date(dateStr);
@@ -73,9 +67,29 @@ export default function CalendarDashboard() {
     return `${day} ${month} ${year}, ${time}`;
   };
 
+  const handleDateClick = (dateInfo) => {
+    const dateStr = dateInfo.dateStr;
+    const sessionsOnDate = sessions.filter(s => s.start.split("T")[0] === dateStr);
+    if (sessionsOnDate.length === 0) return;
+    const learners = [...new Set(sessionsOnDate.map(s => s.title.split(" - ")[1]))];
+    const subjects = [...new Set(sessionsOnDate.map(s => s.title.split(" - ")[0]))];
+    const statusCount = {
+      finished: sessionsOnDate.filter(s => s.status === "finished").length,
+      declined: sessionsOnDate.filter(s => s.status === "declined").length,
+      ongoing: sessionsOnDate.filter(s => s.status === "ongoing" || s.status === "accepted").length,
+    };
+    setSelectedDateInfo({
+      date: dateStr,
+      totalSessions: sessionsOnDate.length,
+      learners,
+      subjects,
+      statusCount
+    });
+  };
+
   return (
     <div className="dashboard">
-      {/* Calendar Section */}
+      {/* Calendar Left */}
       <div className="calendar-section">
         <FullCalendar
           ref={calendarRef}
@@ -92,6 +106,7 @@ export default function CalendarDashboard() {
             start: info.event.start,
             status: info.event.extendedProps.status,
           })}
+          dateClick={handleDateClick}
           dayCellClassNames={(dateInfo) => {
             const hasSession = sessions.some(
               s => new Date(s.start).toDateString() === dateInfo.date.toDateString()
@@ -100,17 +115,10 @@ export default function CalendarDashboard() {
           }}
           height="auto"
         />
-        <div style={{ position: "absolute", right: "10px", top: "12px" }}>
-          <select value={year} onChange={handleYearChange}>
-            {Array.from({ length: 10 }, (_, i) => new Date().getFullYear() - 5 + i).map(y => (
-              <option key={y} value={y}>{y}</option>
-            ))}
-          </select>
-        </div>
       </div>
 
-      {/* Sidebar */}
-      <div className="sidebar">
+      {/* Sidebar Right */}
+      <div className="sidebar sdb">
         <div className="sidebar-header">
           <h3>Kavi</h3>
           <img src="https://via.placeholder.com/40" alt="User" className="avatar"/>
@@ -120,11 +128,7 @@ export default function CalendarDashboard() {
 
         <div style={{marginTop:'10px'}}>
           <label>Filter by Date:</label><br/>
-          <input 
-            type="date" 
-            value={filterDate} 
-            onChange={e => setFilterDate(e.target.value)} 
-          />
+          <input type="date" value={filterDate} onChange={e => setFilterDate(e.target.value)} />
           <button onClick={() => setFilterDate("")} style={{marginLeft:'5px'}} className="add-btn">Clear</button>
         </div>
 
@@ -146,31 +150,20 @@ export default function CalendarDashboard() {
 
         <h4>Stats</h4>
         <div className="stat-box">
-          <div className="stat-item" onClick={() => setFilterStatus("declined")} style={{cursor:'pointer'}}>
+          <div className="stat-item" onClick={() => setFilterStatus("declined")}>
             <strong>{rejectedCount}</strong><br/>Rejected
           </div>
-          <div className="stat-item" onClick={() => setFilterStatus("finished")} style={{cursor:'pointer'}}>
+          <div className="stat-item" onClick={() => setFilterStatus("finished")}>
             <strong>{finishedCount}</strong><br/>Finished
           </div>
-          <div className="stat-item" onClick={() => setFilterStatus("ongoing")} style={{cursor:'pointer'}}>
+          <div className="stat-item" onClick={() => setFilterStatus("ongoing")}>
             <strong>{ongoingCount}</strong><br/>Ongoing
           </div>
-          <div className="stat-item" onClick={() => setFilterStatus(null)} style={{cursor:'pointer'}}>
+          <div className="stat-item" onClick={() => setFilterStatus(null)}>
             <strong>{sessions.length}</strong><br/>All
           </div>
         </div>
       </div>
-
-      {/* Event Details Modal */}
-      {selectedEvent && (
-        <div className="modal-overlay" onClick={() => setSelectedEvent(null)}>
-          <div className="modal" onClick={e => e.stopPropagation()}>
-            <h3>{selectedEvent.title}</h3>
-            <p>Time: {formatDateTime(selectedEvent.start)}</p>
-            <p>Status: {selectedEvent.status}</p>
-          </div>
-        </div>
-      )}
 
       {/* Add Session Modal */}
       {showAddModal && (
