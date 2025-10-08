@@ -1,0 +1,31 @@
+.post-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f2f5;
+  padding-top: 64px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 56px; /* footer space */
+}
+
+.post-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.image-preview {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.video-preview {
+  width: 100%;
+  max-height: 400px;
+  border-radius: 8px;
+}
