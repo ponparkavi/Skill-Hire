@@ -1,31 +1,32 @@
 /* ===== Dashboard Layout ===== */
 .dashboard {
   display: flex;
-  flex-direction: row; /* Calendar left, sidebar right */
-  height: 100vh;
+  flex-direction: row;
+  /* height: 100vh; */
   font-family: "Segoe UI", sans-serif;
-  background: #f9fafb;
+  background: #0f172a;
+  color: #f8fafc;
 }
 
 /* ===== Calendar Section ===== */
 .calendar-section {
   flex: 3;
-  padding: 15px;
-  background: #fff;
-  border-right: 1px solid #e5e7eb;
+  border-right: 1px solid #334155;
+  padding: 20px;
+  border-radius: 8px 0 0 8px;
 }
 
-/* FullCalendar overrides */
+/* FullCalendar Overrides */
 .fc {
-  background: #fff;
+  /* background: #1e293b; */
   border-radius: 8px;
-  padding: 10px;
-  color: black; /* calendar fonts black */
+  /* padding: 10px; */
+  color: #f8fafc;
 }
 
 .fc-toolbar {
-  background: #1e293b;
-  color: #fff;
+  background: #334155;
+  color: #f8fafc;
   border-radius: 6px;
   padding: 8px 12px;
   margin-bottom: 10px;
@@ -37,63 +38,78 @@
 }
 
 .fc-button {
-  background: #334155 !important;
+  background: #475569 !important;
   border: none !important;
-  color: #fff !important;
+  color: #f8fafc !important;
   border-radius: 6px !important;
   padding: 5px 10px;
   transition: 0.3s;
 }
 
 .fc-button:hover {
-  background: #475569 !important;
-}
-
-.fc-button-group .fc-button-active {
   background: #64748b !important;
 }
 
-/* ===== Calendar Dates ===== */
+.fc-button-group .fc-button-active {
+  background: #2563eb !important;
+}
+
+/* Calendar Dates */
 .booked-day {
-  background: #e6f9e6 !important;  /* very light green */
+  background: #2563eb !important;
   transition: background 0.2s;
+  border-radius: 6px;
 }
 .booked-day:hover {
-  background: #d1f2d1 !important;
+  background: rgba(37, 99, 235, 0.35) !important;
 }
 
 .empty-day {
-  background: #ffecec !important;  /* very light pink */
+  background: rgba(220, 38, 38, 0.1) !important;
   transition: background 0.2s;
+  border-radius: 6px;
 }
 .empty-day:hover {
-  background: #ffdede !important;
+  background: rgba(220, 38, 38, 0.2) !important;
 }
 
 /* ===== Sidebar ===== */
-.sidebar {
-  flex: 1.3; /* adjust width */
-  background: #06070a;
+.sidebarz {
+  flex: 1.3;
+  background: #0f172a;
   color: #f8fafc;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  border-left: 2px solid #1e293b;
-  position:relative;
+  border-left: 2px solid #334155;
+  position: relative;
+  border-radius: 0 8px 8px 0;
+  overflow-y: auto;
 }
-.sidebar-header {
+
+.sidebarz::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebarz::-webkit-scrollbar-thumb {
+  background-color: #2563eb;
+  border-radius: 3px;
+}
+
+.sidebarz-header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.sidebar-header h3 {
+.sidebarz-header h3 {
   margin: 0;
   font-size: 20px;
   font-weight: 600;
 }
 
 .avatar {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 2px solid #38bdf8;
 }
@@ -101,13 +117,13 @@
 /* Buttons */
 .add-btn {
   background: #3b82f6;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 6px;
-  padding: 6px 12px;
+  padding: 8px 12px;
   margin-top: 10px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   width: 100%;
 }
 
@@ -116,18 +132,22 @@
   transform: scale(1.02);
 }
 
-/* Session box */
+/* Session Boxes */
 .session-box {
   background: #1e293b;
-  padding: 10px;
+  padding: 12px;
   border-radius: 6px;
   margin-bottom: 12px;
   font-size: 14px;
-  transition: transform 0.2s;
+  transition: transform 0.2s, background 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .session-box:hover {
   transform: translateX(3px);
+  background: #2c3e50;
 }
 
 .session-box strong {
@@ -162,7 +182,8 @@
 .stat-box {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 15px;
+  gap: 8px;
 }
 
 .stat-item {
@@ -171,7 +192,6 @@
   border-radius: 6px;
   text-align: center;
   flex: 1;
-  margin: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -186,9 +206,9 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(15, 23, 42, 0.6);
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -196,23 +216,87 @@
 }
 
 .modal {
-  background: #595656b9;
+  background: rgba(37, 41, 47, 0.95);
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   width: 420px;
   max-width: 90%;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   animation: fadeIn 0.3s ease-in-out;
 }
 
 .modal h3 {
   margin-top: 0;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #334155;
   padding-bottom: 8px;
+  color: #f8fafc;
+}
+
+/* Modal Inputs */
+.modal input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+/* Modal Buttons */
+.modal button[type="submit"] {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal button[type="submit"]:hover {
+  background: #2563eb;
+}
+
+.modal button[type="button"] {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.modal button[type="button"]:hover {
+  background: #b91c1c;
 }
 
 /* Smooth modal animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Date Inputs */
+input[type="date"],
+input[type="datetime-local"] {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: #f8fafc;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.fc .fc-cell-shaded, .fc .fc-day-disabled {
+    background: black;
 }

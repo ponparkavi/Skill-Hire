@@ -21,16 +21,27 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { useNavigate } from 'react-router-dom';
 import PostFeed from './postfeed';
 import PostAddIcon from '@mui/icons-material/PostAdd';
-
-import './Main.css';  // ✅ Import CSS
+import './Main.css';  
+import CalendarDashboard from "./CalendarDashboard";
+import Post from './post';// ✅ Import CSS
 
 function Main() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [value, setValue] = useState(0);
     const nav = useNavigate();
+    const [home,sethome]=useState(true);
+    const [postbool,setpostbool] = useState(false);
+    const [calenderbool,setcalenderbool]=useState(false);
 
     const toggleDrawer = (open) => () => {
         setIsSidebarOpen(open);
+    };
+    const postadd = (open) => () => {
+        sethome(false);
+        setpostbool(true);
+    };
+    const handlehome = (open) => () => {
+        
     };
 
     const handleMessage = () => {
@@ -110,9 +121,16 @@ function Main() {
             </Drawer>
 
             {/* Scrollable PostFeed */}
-            <Box className="postfeed-container">
+         {home &&    <Box className="postfeed-container">
                 <PostFeed />
-            </Box>
+            </Box>}
+            {postbool &&    <Box className="postfeed-container">
+                <Post />
+            </Box>}
+           {calenderbool&& <Box className="postfeed-container">
+                <CalendarDashboard />
+            </Box>}
+
 
             {/* Fixed Footer Navigation */}
             <Box className="footer">
@@ -121,9 +139,22 @@ function Main() {
                     value={value}
                     onChange={(event, newValue) => {
                         setValue(newValue);
-                        if (newValue === 0) nav("/Home");
-                        if (newValue === 1) nav("/Post");
-                        if (newValue === 2) nav("/Calendar");
+                        if (newValue === 0){
+                            sethome(true);
+                            setpostbool(false);
+                             setcalenderbool(false)
+
+                        } ;
+                        if (newValue === 1) {
+                            sethome(false);
+                            setpostbool(true);
+                            setcalenderbool(false)
+                        };
+                        if (newValue === 2) {
+                            setcalenderbool(true);
+                            sethome(false);
+                            setpostbool(false);
+                        };
                         if (newValue === 3) nav("/Dash");
                     }}
                 >

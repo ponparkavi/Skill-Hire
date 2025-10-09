@@ -4,7 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
-import "./CalendarDashboard.css";
+ import "./CalendarDashboard.css";
 
 export default function CalendarDashboard() {
   const calendarRef = useRef(null);
@@ -17,7 +17,7 @@ export default function CalendarDashboard() {
     { id: "2", title: "Python Coaching - Mary", start: "2025-10-10T10:00:00", status: "declined" },
     { id: "3", title: "UI Design - Ethan", start: "2025-10-15T14:00:00", status: "finished" },
   ]);
-
+  
   const [showAddModal, setShowAddModal] = useState(false);
   const [newSession, setNewSession] = useState({ learner: "", subject: "", datetime: "" });
 
@@ -118,8 +118,8 @@ export default function CalendarDashboard() {
       </div>
 
       {/* Sidebar Right */}
-      <div className="sidebar sdb">
-        <div className="sidebar-header">
+      <div className="sidebarz sdb">
+        <div className="sidebarz-header">
           <h3>Kavi</h3>
           <img src="https://via.placeholder.com/40" alt="User" className="avatar"/>
         </div>
