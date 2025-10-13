@@ -8,10 +8,13 @@ import ChatList from './ChatList';
 import ChatPage from './ChatPage';
 import LoginPage from './Login';
 import Post from './post';
+import AuthPage from './AuthPage';
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+
+        <Route path="/" element={<AuthPage />} />
         <Route path="/Dash" element={<Dashboard />} />
         <Route path="/profile" element={<SkillHierProfile />} />
         <Route path="/calendar" element={<CalendarDashboard />} />
