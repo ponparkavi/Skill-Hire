@@ -4,7 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
- import "./calendar.css";
+ import "./Calen.css";
 
 export default function CalendarDashboard() {
   const calendarRef = useRef(null);
@@ -87,6 +87,15 @@ export default function CalendarDashboard() {
     });
   };
 
+
+  const itemStyle = (status) => ({
+    cursor: "pointer",
+    background: filterStatus === status ? "black" : "transparent",
+    color: filterStatus === status ? "white" : "inherit",
+    transition: "background 0.15s ease",
+  });
+
+
   return (
     <div className="dashboard">
       {/* Calendar Left */}
@@ -149,20 +158,23 @@ export default function CalendarDashboard() {
         }
 
         <h4>Stats</h4>
-        <div className="stat-box">
-          <div className="stat-item" onClick={() => setFilterStatus("declined")}>
-            <strong>{rejectedCount}</strong><br/>Rejected
+          <div className="stat-box" style={{ display: "flex" }}>
+            <div className="stat-item" style={itemStyle("declined")} onClick={() => setFilterStatus("declined")}>
+              <strong>{rejectedCount}</strong><br />Rejected
+            </div>
+
+            <div className="stat-item" style={itemStyle("finished")} onClick={() => setFilterStatus("finished")}>
+              <strong>{finishedCount}</strong><br />Finished
+            </div>
+
+            <div className="stat-item" style={itemStyle("ongoing")} onClick={() => setFilterStatus("ongoing")}>
+              <strong>{ongoingCount}</strong><br />Ongoing
+            </div>
+
+            <div className="stat-item" style={itemStyle(null)} onClick={() => setFilterStatus(null)}>
+              <strong>{sessions.length}</strong><br />All
+            </div>
           </div>
-          <div className="stat-item" onClick={() => setFilterStatus("finished")}>
-            <strong>{finishedCount}</strong><br/>Finished
-          </div>
-          <div className="stat-item" onClick={() => setFilterStatus("ongoing")}>
-            <strong>{ongoingCount}</strong><br/>Ongoing
-          </div>
-          <div className="stat-item" onClick={() => setFilterStatus(null)}>
-            <strong>{sessions.length}</strong><br/>All
-          </div>
-        </div>
       </div>
 
       {/* Add Session Modal */}

@@ -15,6 +15,7 @@ function App() {
       <Routes>
 
         <Route path="/" element={<AuthPage />} />
+        <Route path="/auth" element={<AuthPage />} />
         <Route path="/Dash" element={<Dashboard />} />
         <Route path="/profile" element={<SkillHierProfile />} />
         <Route path="/calendar" element={<CalendarDashboard />} />

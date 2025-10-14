@@ -1,0 +1,232 @@
+/* ---------- Base Styles ---------- */
+body {
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  background: #f5f8fc;
+  margin: 0;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px;
+  min-height: 100vh;
+  color: #06090c;
+}
+
+/* ---------- Calendar Section ---------- */
+.calendar-section {
+  flex: 1.3;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 16px;
+  overflow: hidden;
+  
+}
+
+.fc {
+  font-family: inherit;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.fc .fc-button {
+  background: #2563eb;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.fc .fc-button:hover {
+  background: #1d4ed8;
+}
+
+.fc .fc-daygrid-day-number {
+  font-weight: 500;
+  color: #6087bf;
+}
+
+.booked-day {
+  background: rgba(123, 227, 197, 0.497);
+}
+
+/* ---------- Sidebar ---------- */
+.sidebarz {
+  width: 320px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sidebarz-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+/* ---------- Buttons ---------- */
+.add-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background 0.2s ease;
+}
+
+.add-btn:hover {
+  background: #1d4ed8;
+}
+
+/* ---------- Session Boxes ---------- */
+.session-box {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 8px 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.session-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tag {
+  padding: 3px 6px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  text-transform: capitalize;
+}
+
+.tag.accepted,
+.tag.ongoing {
+  background: #16a34a;
+}
+
+.tag.declined {
+  background: #dc2626;
+}
+
+.tag.finished {
+  background: #495367;
+}
+
+/* ---------- Stats Box ---------- */
+.stat-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #2563eb;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 8px;
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.stat-item:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+/* ---------- Modal ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  width: 360px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.25s ease;
+}
+
+.modal h3 {
+  margin-top: 0;
+}
+
+.modal input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-top: 4px;
+}
+
+.modal button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.modal button:hover {
+  background: #1d4ed8;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebarz {
+    width: 100%;
+    order: 2;
+  }
+
+  .calendar-section {
+    order: 1;
+  }
+}
