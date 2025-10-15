@@ -67,7 +67,7 @@ const Dashboard = () => {
       <div className="bg-shape blob"></div>
 
       {/* Navbar */}
-      <nav className="navbar">
+      {/* <nav className="navbar">
         <div className="logo">Skill Hire</div>
         <div className="nav-links">
           <button className="nav-btn">Dashboard</button>
@@ -76,10 +76,10 @@ const Dashboard = () => {
           <button className="nav-btn">Profile</button>
           <button className="nav-btn">Logout</button>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Sidebar */}
-      <aside className="sidebar">
+      {/* <aside className="sidebar">
         <div className="icon-group">
           <button className="sidebar-btn"><FontAwesomeIcon icon={faHome} /><span>Dashboard</span></button>
           <button className="sidebar-btn"><FontAwesomeIcon icon={faBrain} /><span>Skills</span></button>
@@ -87,7 +87,7 @@ const Dashboard = () => {
           <button className="sidebar-btn"><FontAwesomeIcon icon={faUser} /><span>Profile</span></button>
           <button className="sidebar-btn"><FontAwesomeIcon icon={faPowerOff} /><span>Logout</span></button>
         </div>
-      </aside>
+      </aside> */}
 
       {/* Main Content */}
       <main>

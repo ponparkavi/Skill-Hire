@@ -13,8 +13,6 @@ import {
 
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
-
-
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

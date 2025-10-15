@@ -1,33 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SkillHierProfile from "./OwnProfile";
+import Post from "./post";
+import PostDetail from "./PostDetail";
 import CalendarDashboard from "./CalendarDashboard";
-import SkillHierProfile from "./SkillHierProfile";
 import Dashboard from "./Dashboard";
 import Main from "./main";
 import ChatList from './ChatList';
 import ChatPage from './ChatPage';
-import LoginPage from './Login';
-import Post from './post';
 import AuthPage from './AuthPage';
+import Settings from './settings';
+import Meeting from './meeting';
+
 function App() {
+  const [posts, setPosts] = useState([]); // shared posts state
+
   return (
     <BrowserRouter>
       <Routes>
-
         <Route path="/" element={<AuthPage />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/Dash" element={<Dashboard />} />
-        <Route path="/profile" element={<SkillHierProfile />} />
+        <Route path="/profile" element={<SkillHierProfile posts={posts} setPosts={setPosts} />} /> 
         <Route path="/calendar" element={<CalendarDashboard />} />
-        <Route path="/" element={<LoginPage />} />
         <Route path="/Main" element={<Main />} />
-        <Route path="/post" element={<Post />} />
+        <Route path="/post" element={<Post posts={posts} setPosts={setPosts} />} /> 
+        <Route path="/post/:id" element={<PostDetail posts={posts} setPosts={setPosts} />} />
         <Route path="/ChatList" element={<ChatList />} />
         <Route path="/chat/:id" element={<ChatPage />} />
+
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/meeting" element={<Meeting />} />
       </Routes>
-      </BrowserRouter>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
