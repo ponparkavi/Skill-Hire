@@ -6,11 +6,11 @@ import PostDetail from "./PostDetail";
 import CalendarDashboard from "./CalendarDashboard";
 import Dashboard from "./Dashboard";
 import Main from "./main";
-import ChatList from './ChatList';
-import ChatPage from './ChatPage';
-import AuthPage from './AuthPage';
-import Settings from './settings';
-import Meeting from './meeting';
+import ChatList from "./ChatList";
+import ChatPage from "./ChatPage";
+import AuthPage from "./AuthPage";
+import Settings from "./settings";
+import Meeting from "./meeting";
 
 function App() {
   const [posts, setPosts] = useState([]); // shared posts state
@@ -20,13 +20,22 @@ function App() {
       <Routes>
         <Route path="/" element={<AuthPage />} />
         <Route path="/auth" element={<AuthPage />} />
-        <Route path="/Dash" element={<Dashboard />} />
-        <Route path="/profile" element={<SkillHierProfile posts={posts} setPosts={setPosts} />} /> 
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/profile"
+          element={<SkillHierProfile posts={posts} setPosts={setPosts} />}
+        />
         <Route path="/calendar" element={<CalendarDashboard />} />
-        <Route path="/Main" element={<Main />} />
-        <Route path="/post" element={<Post posts={posts} setPosts={setPosts} />} /> 
-        <Route path="/post/:id" element={<PostDetail posts={posts} setPosts={setPosts} />} />
-        <Route path="/ChatList" element={<ChatList />} />
+        <Route path="/main" element={<Main />} />
+        <Route
+          path="/post"
+          element={<Post posts={posts} setPosts={setPosts} />}
+        />
+        <Route
+          path="/post/:id"
+          element={<PostDetail posts={posts} setPosts={setPosts} />}
+        />
+        <Route path="/chatlist" element={<ChatList />} />
         <Route path="/chat/:id" element={<ChatPage />} />
 
         <Route path="/settings" element={<Settings />} />

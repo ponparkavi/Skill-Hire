@@ -101,20 +101,20 @@
 // //       {/* Banner Section - Fixed Overlay */}
 // //       <div className="banner-section">
 // //         <div className="banner-image-container">
-// //           <img 
-// //             src={user.bannerImage} 
-// //             alt="Profile banner" 
+// //           <img
+// //             src={user.bannerImage}
+// //             alt="Profile banner"
 // //             className="banner-image"
 // //           />
 // //           <div className="banner-overlay"></div>
 // //         </div>
-        
+
 // //         {/* Profile Picture - Perfectly Overlaid on Banner */}
 // //         <div className="profile-picture-overlay">
 // //           <div className="profile-picture-wrapper">
-// //             <img 
-// //               src={user.profilePicture} 
-// //               alt="Profile" 
+// //             <img
+// //               src={user.profilePicture}
+// //               alt="Profile"
 // //               className="profile-picture-main"
 // //             />
 // //             {/* Active Status Indicator */}
@@ -183,8 +183,8 @@
 // //           <div className="rating-display-main">
 // //             <div className="stars-main">
 // //               {"★".repeat(5).split('').map((star, index) => (
-// //                 <span 
-// //                   key={index} 
+// //                 <span
+// //                   key={index}
 // //                   className={index < Math.floor(user.rating) ? "star-main filled" : "star-main"}
 // //                 >
 // //                   {star}
@@ -228,9 +228,9 @@
 // //           <div className="posts-grid-main">
 // //             {userPosts.map(post => (
 // //               <div key={post.id} className="post-item-main">
-// //                 <img 
-// //                   src={post.image} 
-// //                   alt={`Post ${post.id}`} 
+// //                 <img
+// //                   src={post.image}
+// //                   alt={`Post ${post.id}`}
 // //                   className="post-image-main"
 // //                 />
 // //                 <div className="post-overlay-main">
@@ -372,20 +372,20 @@
 //       {/* Banner Section - Fixed Overlay */}
 //       <div className="banner-section">
 //         <div className="banner-image-container">
-//           <img 
-//             src={user.bannerImage} 
-//             alt="Profile banner" 
+//           <img
+//             src={user.bannerImage}
+//             alt="Profile banner"
 //             className="banner-image"
 //           />
 //           <div className="banner-overlay"></div>
 //         </div>
-        
+
 //         {/* Profile Picture - Perfectly Overlaid on Banner */}
 //         <div className="profile-picture-overlay">
 //           <div className="profile-picture-wrapper">
-//             <img 
-//               src={user.profilePicture} 
-//               alt="Profile" 
+//             <img
+//               src={user.profilePicture}
+//               alt="Profile"
 //               className="profile-picture-main"
 //             />
 //             {/* Active Status Indicator */}
@@ -454,8 +454,8 @@
 //           <div className="rating-display-main">
 //             <div className="stars-main">
 //               {"★".repeat(5).split('').map((star, index) => (
-//                 <span 
-//                   key={index} 
+//                 <span
+//                   key={index}
 //                   className={index < Math.floor(user.rating) ? "star-main filled" : "star-main"}
 //                 >
 //                   {star}
@@ -499,9 +499,9 @@
 //           <div className="posts-grid-main">
 //             {userPosts.map(post => (
 //               <div key={post.id} className="post-item-main">
-//                 <img 
-//                   src={post.image} 
-//                   alt={`Post ${post.id}`} 
+//                 <img
+//                   src={post.image}
+//                   alt={`Post ${post.id}`}
 //                   className="post-image-main"
 //                 />
 //                 <div className="post-overlay-main">
@@ -539,7 +539,6 @@
 // export default SkillHierProfile;
 
 //=====code run: edit profile works=============================002====================
-
 
 // import React, { useState } from 'react';
 // import './ProfilePage.css';
@@ -719,20 +718,20 @@
 //       {/* Banner Section - Facebook Style */}
 //       <div className="banner-section">
 //         <div className="banner-image-container">
-//           <img 
-//             src={user.bannerImage} 
-//             alt="Profile banner" 
+//           <img
+//             src={user.bannerImage}
+//             alt="Profile banner"
 //             className="banner-image"
 //           />
 //           <div className="banner-overlay"></div>
 //         </div>
-        
+
 //         {/* Facebook Style Profile Picture Container */}
 //         <div className="facebook-profile-container">
 //           <div className="profile-picture-wrapper">
-//             <img 
-//               src={user.profilePicture} 
-//               alt="Profile" 
+//             <img
+//               src={user.profilePicture}
+//               alt="Profile"
 //               className="facebook-profile-picture"
 //             />
 //             {/* Active Status Indicator - Facebook Style */}
@@ -801,8 +800,8 @@
 //           <div className="rating-display">
 //             <div className="stars">
 //               {"★".repeat(5).split('').map((star, index) => (
-//                 <span 
-//                   key={index} 
+//                 <span
+//                   key={index}
 //                   className={index < Math.floor(user.rating) ? "star filled" : "star"}
 //                 >
 //                   {star}
@@ -851,9 +850,9 @@
 //         <div className="instagram-posts-grid">
 //           {userPosts.map(post => (
 //             <div key={post.id} className="instagram-post-item">
-//               <img 
-//                 src={post.image} 
-//                 alt={`Post ${post.id}`} 
+//               <img
+//                 src={post.image}
+//                 alt={`Post ${post.id}`}
 //                 className="post-image"
 //               />
 //               <div className="post-overlay">
@@ -877,8 +876,6 @@
 // };
 
 // export default SkillHierProfile;
-
-
 
 // //=======code run: follow,unfollow with logo , update ==============003====================
 
@@ -1124,7 +1121,6 @@
 
 // export default SkillHierProfile;
 
-
 //===================================================================005====================
 
 // import React, { useState } from "react";
@@ -1200,7 +1196,6 @@
 // };
 
 // export default SkillHierProfile;
-
 
 //========================================================================006==================
 
@@ -1393,9 +1388,9 @@
 //         {posts.length > 0 ? (
 //           posts.map(post => (
 //             <div key={post.id} className="gallery-item" onClick={() => navigate(`/post/${post.id}`)}>
-//               {post.previewSrc 
-//                 ? post.previewSrc.includes("video") 
-//                   ? <video src={post.previewSrc} controls className="video-thumb" /> 
+//               {post.previewSrc
+//                 ? post.previewSrc.includes("video")
+//                   ? <video src={post.previewSrc} controls className="video-thumb" />
 //                   : <img src={post.previewSrc} alt="Post" className="image-thumb" />
 //                 : <div className="text-thumb">{post.blocks.find(b => b.type === "text")?.content.slice(0,50) || "Text Post"}</div>
 //               }
@@ -1417,14 +1412,17 @@
 
 // export default SkillHierProfile;
 
-
 //=======================================================================008====================
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./ProfilePage.css";
+import "./css/ProfilePage.css";
 
-const SkillHierProfile = ({ posts = [], setPosts = [], isOwnProfile = true }) => {
+const SkillHierProfile = ({
+  posts = [],
+  setPosts = [],
+  isOwnProfile = true,
+}) => {
   const navigate = useNavigate();
 
   // User state with edit profile
@@ -1435,69 +1433,123 @@ const SkillHierProfile = ({ posts = [], setPosts = [], isOwnProfile = true }) =>
     followers: 12500,
     following: 500,
     postsCount: posts.length,
-    isActive: true
+    isActive: true,
   });
 
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState({
     name: user.name,
-    bio: user.bio
+    bio: user.bio,
   });
 
   const handleEdit = () => setIsEditing(true);
-  const handleSave = () => { setUser({ ...user, name: editForm.name, bio: editForm.bio }); setIsEditing(false); }
-  const handleCancel = () => { setEditForm({ name: user.name, bio: user.bio }); setIsEditing(false); }
-  const handleChange = (e) => { setEditForm({ ...editForm, [e.target.name]: e.target.value }); }
+  const handleSave = () => {
+    setUser({ ...user, name: editForm.name, bio: editForm.bio });
+    setIsEditing(false);
+  };
+  const handleCancel = () => {
+    setEditForm({ name: user.name, bio: user.bio });
+    setIsEditing(false);
+  };
+  const handleChange = (e) => {
+    setEditForm({ ...editForm, [e.target.name]: e.target.value });
+  };
 
   const handleDeletePost = (id) => {
-    if(window.confirm("Are you sure to delete this post?")){
-      setPosts(prev => prev.filter(p => p.id !== id));
+    if (window.confirm("Are you sure to delete this post?")) {
+      setPosts((prev) => prev.filter((p) => p.id !== id));
     }
-  }
+  };
 
   return (
     <div className="profile-container">
       {/* Banner */}
       <div className="banner-section">
-        <img src="/assets/mountain-banner.jpg" alt="Banner" className="banner-img" />
+        <img
+          src="/assets/mountain-banner.jpg"
+          alt="Banner"
+          className="banner-img"
+        />
       </div>
 
       {/* Profile Info */}
       <div className="profile-info">
-        <img src="/assets/profile-pic.jpg" alt="Profile" className="profile-pic" />
+        <img
+          src="/assets/profile-pic.jpg"
+          alt="Profile"
+          className="profile-pic"
+        />
 
         {/* Name */}
         {isEditing ? (
-          <input type="text" name="name" value={editForm.name} onChange={handleChange} className="edit-input"/>
-        ) : <h2 className="profile-name">{user.name}</h2>}
+          <input
+            type="text"
+            name="name"
+            value={editForm.name}
+            onChange={handleChange}
+            className="edit-input"
+          />
+        ) : (
+          <h2 className="profile-name">{user.name}</h2>
+        )}
 
         <p className="username">{user.username}</p>
 
         {/* Bio */}
         {isEditing ? (
-          <textarea name="bio" value={editForm.bio} onChange={handleChange} className="edit-textarea" rows={3}/>
-        ) : <p className="bio">{user.bio}</p>}
+          <textarea
+            name="bio"
+            value={editForm.bio}
+            onChange={handleChange}
+            className="edit-textarea"
+            rows={3}
+          />
+        ) : (
+          <p className="bio">{user.bio}</p>
+        )}
 
         {/* Stats */}
         <div className="stats">
-          <div className="stats-box"><strong>{user.followers.toLocaleString()}</strong><span className="facebook-stat-label">Followers</span></div>
-          <div className="stats-box"><strong>{user.following.toLocaleString()}</strong><span className="facebook-stat-label">Following</span></div>
-          <div className="stats-box"><strong>{posts.length}</strong><span className="facebook-stat-label">Posts</span></div>
+          <div className="stats-box">
+            <strong>{user.followers.toLocaleString()}</strong>
+            <span className="facebook-stat-label">Followers</span>
+          </div>
+          <div className="stats-box">
+            <strong>{user.following.toLocaleString()}</strong>
+            <span className="facebook-stat-label">Following</span>
+          </div>
+          <div className="stats-box">
+            <strong>{posts.length}</strong>
+            <span className="facebook-stat-label">Posts</span>
+          </div>
         </div>
 
         {/* Action Buttons */}
         <div className="profile-actions-buttons">
           {isEditing ? (
             <>
-              <button className="action-btn primary" onClick={handleSave}>Save Changes</button>
-              <button className="action-btn secondary" onClick={handleCancel}>Cancel</button>
+              <button className="action-btn primary" onClick={handleSave}>
+                Save Changes
+              </button>
+              <button className="action-btn secondary" onClick={handleCancel}>
+                Cancel
+              </button>
             </>
           ) : (
-            isOwnProfile && <button className="action-btn primary" onClick={handleEdit}>✏️ Edit Profile</button>
+            isOwnProfile && (
+              <button className="action-btn primary" onClick={handleEdit}>
+                ✏️ Edit Profile
+              </button>
+            )
           )}
-          
+
           {isOwnProfile && (
-            <button className="action-btn create-post-btn" onClick={() => navigate("/post")}>➕ Create Post</button>
+            <button
+              className="action-btn create-post-btn"
+              onClick={() => navigate("/post")}
+            >
+              ➕ Create Post
+            </button>
           )}
         </div>
       </div>
@@ -1505,32 +1557,59 @@ const SkillHierProfile = ({ posts = [], setPosts = [], isOwnProfile = true }) =>
       {/* Posts Gallery */}
       <div className="gallery">
         {posts.length > 0 ? (
-          posts.map(post => (
+          posts.map((post) => (
             <div key={post.id} className="gallery-item">
-              {post.previewSrc ? 
-                (post.previewSrc.includes("video") 
-                  ? <video src={post.previewSrc} controls className="post-media"/>
-                  : <img src={post.previewSrc} alt="Post" className="post-media"/>)
-                : <div className="text-thumb">{post.blocks.find(b => b.type==="text")?.content.slice(0,50) || "Text Post"}</div>
-              }
+              {post.previewSrc ? (
+                post.previewSrc.includes("video") ? (
+                  <video
+                    src={post.previewSrc}
+                    controls
+                    className="post-media"
+                  />
+                ) : (
+                  <img
+                    src={post.previewSrc}
+                    alt="Post"
+                    className="post-media"
+                  />
+                )
+              ) : (
+                <div className="text-thumb">
+                  {post.blocks
+                    .find((b) => b.type === "text")
+                    ?.content.slice(0, 50) || "Text Post"}
+                </div>
+              )}
 
               {/* Overlay for Post Actions */}
               <div className="post-overlay">
                 <div className="post-stats">
-                  <span>❤ {post.likes||0}</span>
-                  <span>💬 {post.comments?.length||0}</span>
+                  <span>❤ {post.likes || 0}</span>
+                  <span>💬 {post.comments?.length || 0}</span>
                   <span>🔗 Share</span>
                   {isOwnProfile && (
                     <>
-                      <span className="edit-btn" onClick={()=>navigate(`/edit-post/${post.id}`)}>✏️ Edit</span>
-                      <span className="delete-btn" onClick={()=>handleDeletePost(post.id)}>🗑️ Delete</span>
+                      <span
+                        className="edit-btn"
+                        onClick={() => navigate(`/edit-post/${post.id}`)}
+                      >
+                        ✏️ Edit
+                      </span>
+                      <span
+                        className="delete-btn"
+                        onClick={() => handleDeletePost(post.id)}
+                      >
+                        🗑️ Delete
+                      </span>
                     </>
                   )}
                 </div>
               </div>
             </div>
           ))
-        ) : <p className="no-posts">No posts yet</p>}
+        ) : (
+          <p className="no-posts">No posts yet</p>
+        )}
       </div>
     </div>
   );
